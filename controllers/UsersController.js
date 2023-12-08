@@ -32,6 +32,12 @@ const UsersController = {
       res.status(201).json({ email, id: data.insertedId.toString() });
     }
   },
+
+  async getMe(res, req) {
+    const { user } = req;
+
+    res.status(200).json({ email: user.email, id: user._id.toString() });
+  },
 };
 
 export default UsersController;
